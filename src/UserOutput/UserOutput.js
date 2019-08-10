@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const userOutput = props => {
-    
-    const {firstParagraph} = props
+class UserOutput extends Component {
+    constructor(props){
+        super(props)
+    }
 
-    return (
-        <div>
-            <p>{firstParagraph}</p>
-            <p>second paragraph, set hardcoded text</p>
-        </div>
-    )
+    render() {
+        const {firstParagraph} = this.props
+
+        return (
+            <div>
+                <p>{firstParagraph}</p>
+                <p>second paragraph, set hardcoded text</p>
+            </div>
+        )
+    }
 }
 
-export default userOutput
+export default UserOutput
