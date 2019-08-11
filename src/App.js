@@ -2,25 +2,32 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import ValidationComponent from './ValidationComponent/ValidationComponent'
+import CharComponent from './CharComponent/CharComponent'
 
 class App extends Component {
 
   state = {
-    inputfield: ""
+    inputField: ''
   }
 
   inputFieldHandler = event => {
-    const inputfield = event.target.value
-    this.setState({inputfield})
+    const inputField = event.target.value
+    this.setState({inputField})
   }
 
   render() {
-    const {inputfield} = this.state
+    const {inputField} = this.state
 
     return (
       <div className='App'>
-        <input type='text' name='inputfield' onChange={this.inputFieldHandler} size='50' />
-        <ValidationComponent inputLength={inputfield.length} />
+        <input type='text' onChange={this.inputFieldHandler} size='50' />
+        <ValidationComponent inputLength={inputField.length} />
+
+        {
+          inputField.split('')
+            .filter( charValue => charValue !== ' ' )
+            .map( charValue => <CharComponent charValue={charValue} /> )
+        }
       </div>
     )
   }
