@@ -34,13 +34,10 @@ class App extends Component {
         {
           inputField.split('')
             .map( ( charValue, charIndex ) => 
-              {
-                return charValue !== ' ' ?
-                <CharComponent 
-                  charValue={charValue} 
-                  clicked={() => this.inputFieldRemoveChar(charIndex)}/>
-                : null
-              }
+              <CharComponent 
+                key={charIndex}
+                charValue={charValue} 
+                clicked={() => this.inputFieldRemoveChar(charIndex)}/>
             )
         }
       </div>
