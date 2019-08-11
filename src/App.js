@@ -14,7 +14,7 @@ class App extends Component {
     showPersons: false
   }
 
-  switchNameHandler = (newName) => {
+  switchNameHandler = newName => {
     this.setState({
       persons: [
         {
@@ -33,25 +33,11 @@ class App extends Component {
     })
   }
 
-  nameChangeHandler = (event) => {
-    this.setState(
-      {
-        persons: [
-          {
-            name: 'Jean Villete, from on changed',
-            age: 32
-          },
-          {
-            name: event.target.value,
-            age: 28
-          },
-          {
-            name: 'Dani',
-            age: 28
-          }
-        ]
-      }
-    )
+  nameChangeHandler = (event, index) => {
+    const persons = [...this.state.persons]
+    persons[index].name = event.target.value
+
+    this.setState({persons})
   }
 
   togglePersonsHandler = () => {
@@ -86,7 +72,9 @@ class App extends Component {
                   key={person.id}
                   id={`person-${index}`}
                   click={() => this.deletePersonHandler(index)}
+                  changed={(event) => this.nameChangeHandler(event, index)}
                   name={person.name} 
+                  value={person.name} 
                   age={person.age}/>
               )
             }
