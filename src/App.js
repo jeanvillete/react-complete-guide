@@ -15,18 +15,33 @@ class App extends Component {
     this.setState({inputField})
   }
 
+  inputFieldRemoveChar = charIndex => {
+    const {inputField} = this.state
+    const inputFieldAsArray = inputField.split('')
+    inputFieldAsArray.splice(charIndex, 1)
+
+    this.setState({inputField: inputFieldAsArray.join('')})
+  }
+
   render() {
     const {inputField} = this.state
 
     return (
       <div className='App'>
-        <input type='text' onChange={this.inputFieldHandler} size='50' />
+        <input type='text' onChange={this.inputFieldHandler} value={inputField} size='50' />
         <ValidationComponent inputLength={inputField.length} />
 
         {
           inputField.split('')
-            .filter( charValue => charValue !== ' ' )
-            .map( charValue => <CharComponent charValue={charValue} /> )
+            .map( ( charValue, charIndex ) => 
+              {
+                return charValue !== ' ' ?
+                <CharComponent 
+                  charValue={charValue} 
+                  clicked={() => this.inputFieldRemoveChar(charIndex)}/>
+                : null
+              }
+            )
         }
       </div>
     )
