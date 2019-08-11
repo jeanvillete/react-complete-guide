@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
 import ValidationComponent from './ValidationComponent/ValidationComponent'
 
 class App extends Component {
@@ -18,11 +18,11 @@ class App extends Component {
     const {inputfield} = this.state
 
     return (
-      <div className="App">
-        <input type="text" name="inputfield" onChange={this.inputFieldHandler} size='50' />
+      <div className='App'>
+        <input type='text' name='inputfield' onChange={this.inputFieldHandler} size='50' />
         <ValidationComponent inputLength={inputfield.length} />
       </div>
-    );
+    )
   }
 }
 
