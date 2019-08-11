@@ -6,7 +6,7 @@ const validationComponent = props => {
 
     return (
         <div className='ValidationComponent'>
-            {inputLength}
+            { inputLength > 5 ? "Text long enough..." : "Text too short!!!" }
         </div>
     )
 }
