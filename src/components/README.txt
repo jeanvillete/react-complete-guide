@@ -1,0 +1,2 @@
+All artifacts under this directory are stateless/dumb components, for presentational only puposes.
+These components should be declared as "es6 functions", where the properties are accessed through props.
