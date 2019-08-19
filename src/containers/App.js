@@ -26,9 +26,9 @@ class App extends Component {
 
   /** not to be actually used or even invoked, cause it is to be deprecated */
   /** react by itself throws a warning telling this is a deprecated legacy method which is is not going to be invoked */
-  componentWillMount() {
-    console.log('[App.js] componentWillMount')
-  }
+  // componentWillMount() {
+  //   console.log('[App.js] componentWillMount')
+  // }
 
   componentDidMount() {
     console.log('[App.js] componentDidMount')
