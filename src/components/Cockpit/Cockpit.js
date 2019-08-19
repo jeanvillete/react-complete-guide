@@ -2,6 +2,8 @@ import React from 'react'
 import Persons from '../Persons/Persons'
 
 const cockpit = props => {
+    console.log('[Cockpit.js] render')
+
     const {showPersons, persons} = props
     const {deletePersonHandler, nameChangeHandler, togglePersonsHandler} = props
 
