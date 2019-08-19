@@ -60,8 +60,9 @@ class App extends Component {
     const {showPersons, persons} = this.state
 
     return (
-      <div className="App"> 
+      <div className='App'> 
         <Cockpit
+          title={this.props.appTitle}
           showPersons={showPersons}
           persons={persons}
           deletePersonHandler={this.deletePersonHandler}

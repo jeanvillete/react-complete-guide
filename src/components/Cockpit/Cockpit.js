@@ -16,7 +16,7 @@ const cockpit = props => {
 
     return (
         <div>
-            <h1>Hi I'm a React app!</h1>
+            <h1>{props.title}</h1>
 
             <button style={style} onClick={togglePersonsHandler}>Toggle Persons</button>
 
