@@ -1,0 +1,1 @@
+This directory aims to hold static assets such as images.
