@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log('[App.js] getDerivedStateFromProps', props)
+    console.log('[App.js] getDerivedStateFromProps', props, state)
     return state
   }
 
@@ -32,6 +32,15 @@ class App extends Component {
 
   componentDidMount() {
     console.log('[App.js] componentDidMount')
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[App.js] shouldComponentUpdate', nextProps, nextState)
+    return true
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('[App.js] componentDidUpdate', prevProps, prevState, snapshot)
   }
 
   switchNameHandler = newName => {
@@ -91,6 +100,11 @@ class App extends Component {
           togglePersonsHandler={this.togglePersonsHandler}/>
       </div>
     );
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('[App.js] getSnapshotBeforeUpdate', prevProps, prevState)
+    return { sampleMessage: '[App.js] Snapshot!!!'};
   }
 }
 

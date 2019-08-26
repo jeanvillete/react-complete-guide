@@ -2,11 +2,22 @@ import React, {Component} from 'react'
 import Person from '../Person/Person'
 
 class Persons extends Component {
-    /** this method bellow should only be declared on real class-based components where declares and managed state, otherwise warnings are going to be thrown by react */
-    // static getDerivedStateFromProps(props, state) {
-    //     console.log('[Persons.js] getDerivedStateFromProps', props)
-    //     return state
-    // }
+
+    state = {}
+
+    constructor(props) {
+        super(props)
+        console.log('[Persons.js] constructor')
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        console.log('[Persons.js] getDerivedStateFromProps', props, state)
+        return state
+    }
+
+    componentDidMount() {
+        console.log('[Persons.js] componentDidMount')
+    }
 
     shouldComponentUpdate(nextProps, nextState) {
         console.log('[Persons.js] shouldComponentUpdate')
@@ -14,8 +25,8 @@ class Persons extends Component {
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
-        console.log('[Persons.js] getSnapshotBeforeUpdate')
-        return { sampleMessage: 'Snapshot!!!'};
+        console.log('[Persons.js] getSnapshotBeforeUpdate', prevProps, prevState)
+        return { sampleMessage: '[Persons.js] Snapshot!!!'};
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
